@@ -1,0 +1,8 @@
+2022-01-06 17:50:19.1687|Error|TaskWcf.Infrastructure.Repository.CreateTask|#Параметры метода: При создании задачи возникла ошибка# Исключение: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.# Внутреннее исключение: # StackTrace:    в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в TaskWcf.Infrastructure.Repository.CreateTask(Task task, List`1 executors) в C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskWcf\Infrastructure\Repository.cs:строка 46
+2022-01-06 18:41:15.1748|Error|TaskWcf.Infrastructure.Repository.CreateTask|#Параметры метода: При создании задачи возникла ошибка# Исключение: Unable to update the EntitySet 'TaskExecutor' because it has a DefiningQuery and no <InsertFunction> element exists in the <ModificationFunctionMapping> element to support the current operation.# Внутреннее исключение: Unable to update the EntitySet 'TaskExecutor' because it has a DefiningQuery and no <InsertFunction> element exists in the <ModificationFunctionMapping> element to support the current operation.# StackTrace:    в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в TaskWcf.Infrastructure.Repository.CreateTask(Task task, List`1 executors) в C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskWcf\Infrastructure\Repository.cs:строка 51

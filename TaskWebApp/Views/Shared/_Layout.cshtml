@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка поступивших задач</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+</head>
+<body>
+    <div id="base_warper">
+
+        <div id="base_head">
+            Обработка поступивших задач
+        </div>
+        <div id="base_main" style="overflow:auto">
+            @RenderBody()
+        </div>
+        <div id="base_footer">
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    //получаем значение padding и margin в пикселах без px
+    var base_head_mt = parseInt($('#base_head').css("margin-top"));
+    var base_head_mb = parseInt($('#base_head').css("margin-bottom"));
+    var base_footer_mt = parseInt($('#base_head').css("margin-top"));
+
+    //вычисляем высоту главного div
+    var mainDivHeight = $(window).height() - ($("#base_head").height() + $("#base_footer").height() + base_head_mt + base_head_mb + base_footer_mt);
+
+    //устанавливаем высоту
+    $('#base_main').css({
+        height: mainDivHeight + 'px'
+    });
+
+</script>
+

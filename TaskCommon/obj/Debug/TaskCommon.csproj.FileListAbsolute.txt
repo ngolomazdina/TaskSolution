@@ -1,0 +1,6 @@
+C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskCommon\bin\Debug\TaskCommon.dll
+C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskCommon\bin\Debug\TaskCommon.pdb
+C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskCommon\obj\Debug\TaskCommon.csprojAssemblyReference.cache
+C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskCommon\obj\Debug\TaskCommon.csproj.CoreCompileInputs.cache
+C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskCommon\obj\Debug\TaskCommon.dll
+C:\Users\Natalja\Documents\Visual Studio 2019\Projects\TaskSolution\TaskCommon\obj\Debug\TaskCommon.pdb

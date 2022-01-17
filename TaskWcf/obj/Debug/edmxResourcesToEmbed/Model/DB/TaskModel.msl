@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TaskDBModelStoreContainer" CdmEntityContainer="TaskDBEntities">
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="TaskDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="State">
+      <EntityTypeMapping TypeName="TaskDBModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TaskDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Task">
+      <EntityTypeMapping TypeName="TaskDBModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="ParentUid" ColumnName="ParentUid" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ClientUid" ColumnName="ClientUid" />
+          <ScalarProperty Name="PlanTime" ColumnName="PlanTime" />
+          <ScalarProperty Name="FactTime" ColumnName="FactTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskExecutor">
+      <EntityTypeMapping TypeName="TaskDBModel.TaskExecutor">
+        <MappingFragment StoreEntitySet="TaskExecutor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TaskUid" ColumnName="TaskUid" />
+          <ScalarProperty Name="ExecutorUid" ColumnName="ExecutorUid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="TaskDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="TaskDBModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserUid" ColumnName="UserUid" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TaskDBModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_ChangeChildState" FunctionName="TaskDBModel.Store.sp_ChangeChildState" />
+    <FunctionImportMapping FunctionImportName="sp_CheckChildTasks" FunctionName="TaskDBModel.Store.sp_CheckChildTasks" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TaskDBModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TaskDBModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_GetActiveTasks" FunctionName="TaskDBModel.Store.sp_GetActiveTasks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TaskDBModel.sp_GetActiveTasks_Result">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="ParentUid" ColumnName="ParentUid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetAvailableStates" FunctionName="TaskDBModel.Store.sp_GetAvailableStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TaskDBModel.sp_GetAvailableStates_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetTaskList" FunctionName="TaskDBModel.Store.sp_GetTaskList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TaskDBModel.sp_GetTaskList_Result">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="ParentUid" ColumnName="ParentUid" />
+          <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ClientUid" ColumnName="ClientUid" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="PlanTime" ColumnName="PlanTime" />
+          <ScalarProperty Name="FactTime" ColumnName="FactTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TaskDBModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TaskDBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TaskDBModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TaskDBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TaskDBModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_SetParentTaskFactTime" FunctionName="TaskDBModel.Store.sp_SetParentTaskFactTime" />
+    <FunctionImportMapping FunctionImportName="sp_SetParentTaskPlanTime" FunctionName="TaskDBModel.Store.sp_SetParentTaskPlanTime" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TaskDBModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

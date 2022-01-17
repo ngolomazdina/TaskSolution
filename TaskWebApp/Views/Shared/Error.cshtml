@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TaskWebApp.Models.ErrorHandle.Error
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ошибка</title>
+</head>
+<body>
+    <hgroup>
+        <h1>Ошибка.</h1>
+    </hgroup>
+    <div>
+        @Html.DisplayTextFor(m => m.Message)
+    </div>
+    <div style="width:150px; margin-top:30px">
+        <button type="button" id="backToTree" style="width:100%" class="btn" onclick="location.href=('@(Url.Action("Index", "Task" ))')">Назад</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+﻿
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+html, body {
+    height: 100%;
+    font-family: segoeui;
+    background-color: #c6c6c6;
+}
+
+h1 {
+    font-size: 24px;
+    color: #F04E25;
+    font-family: pragmaticaextralight;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 16px;
+    color: #F04E25;
+    font-family: pragmaticaextralight;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+a {
+    color: #555555;
+    text-decoration: none;
+}
+
+input[type='text'],
+select,
+option {
+    color: #264386;
+}
+
+button {
+    width: 140px;
+    height: 30px;
+    border: 1px solid #cccccc !important
+}
+
+    button:focus {
+        border-color: #66afe9 !important;
+    }
+
+#base_warper {
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+    background-color: #E6E6E6;
+}
+
+
+#base_head {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 50px;
+}
+
+#base_namesite {
+    padding: 40px 0 0px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+#base_main {
+    padding: 20px 20px 20px 20px;
+    background-color: #FFFFFF;
+    width: 1240px;
+    margin: 0 auto;
+    height: 100vh;
+    
+}
+
+#base_footer {
+    width: 100%;
+    height: 0px;
+    background-color: #999999;
+    padding: 10px 0 0 0;
+    color: #F0F0F0;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+    #base_footer div {
+        float: left;
+    }
+
+#left-bottombg {
+    background-image: url(../images/bottomleftbg2.png);
+    background-repeat: no-repeat;
+    width: 263px;
+    height: 93px;
+}
+
+#right-bottombg {
+    background-image: url(../images/bottomrightbg1.png);
+    background-repeat: no-repeat;
+    width: 263px;
+    height: 93px;
+}
+
+#txt-bottombg {
+    height: 93px;
+    width: 750px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 80px;
+}
+
+#tabsistlink td a:hover,
+.main_list li a:hover,
+.follow_right a:hover {
+    color: #EF4F29;
+    text-decoration: underline;
+}
+
+
+#tabsistlink td {
+    padding: 7px 0;
+    padding-left: 30px;
+    vertical-align: middle;
+}
+
+    #tabsistlink td:first-child {
+        padding-left: 30px;
+    }
+
+#overlay.currently-loading img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-left: 50%;
+    margin-top: 50%;
+}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../Content/Images/spinner.gif) 50% 50% no-repeat rgb(249,249,249);
+}
+
+.loader2 {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.base_hr {
+    background-image: url(../image/hr.png);
+    background-repeat: no-repeat;
+    width: 1000px;
+    height: 2px;
+}
+
+
+.cleared {
+    clear: both;
+}
+
+.main_list {
+    list-style: disc;
+    color: #437EC2;
+    list-style-type: none;
+    margin-left: 30px;
+}
+
+    .main_list li {
+        margin-bottom: 29px;
+        clear: both;
+    }
+
+        .main_list li a {
+            font-size: 16px;
+            color: #555555;
+        }
+
+.siparat {
+    width: 600px;
+    border: 1px dotted #b0b0b0;
+    height: 0px;
+    line-height: 0px;
+}
+
+.head_list {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #437EC7;
+    width: 600px;
+    padding: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.follow_right {
+    position: absolute;
+    left: 693px;
+    top: 300px;
+}
+
+.tableRow {
+    display: table-row !important;
+    width: 100%
+}
+
+.tableCell {
+    display: table-cell !important;
+}
+
+.table {
+    display: table !important;
+    width: 100%
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.width {
+    width: 100% !important
+}
+
+.overlay {
+    object-fit: none;
+    object-position: 50% 50%;
+}
+
+.select:after {
+    content: "▼" !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+    position: absolute !important;
+    right: 8px !important;
+    top: 4px !important;
+    z-index: 1 !important;
+    text-align: center !important;
+    width: 10% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    box-sizing: border-box !important;
+}
+.wrapper {
+    height: 100%;
+    display: table;
+    width: 100%;    
+}
+
+.content {
+    background: #F5F5F5;
+    /*text-align: center;*/
+}
+
+.main {
+    height: 100%;
+    display: table;
+    width: 100%;
+}
+
+.box {
+    display: table-cell;
+    height: 100% ;
+}
+
+.task_tree {
+    width: 400px;
+    background: #EFAF8C;
+}
+
+.required {
+    border-left-color: #EFAF8C !important;
+    border-left: solid;
+    border-left-width: medium !important
+}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('Images/spinner.gif') 50% 50% no-repeat rgb(249,249,249);
+}
+

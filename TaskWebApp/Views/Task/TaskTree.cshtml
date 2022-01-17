@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Task";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="loader"></div>
+
+
+<div style="height:25px; margin-bottom:10px">
+    <button type="button" id="newTaskBtn" style="width:100px" class="btn" onclick="loadTaskView()">Новая задача</button>
+</div>
+
+<div class="wrapper" style="margin: auto; height:550px">
+    <div class="main">
+        <div id="tree" class="box task_tree"></div>
+        <div class="box" style="width:15px"></div>
+        <div id="task_node" class="box content"></div>
+    </div>
+</div>
+
+<script>
+
+    $(window).load(function () {
+
+    })
+
+    $(document).ready(function () {
+
+            $.ajax({
+                   url: '@Url.Action("GetTaskTree", "Task")',
+                   method:"POST",
+                   dataType: "json",
+                   success: function(data)
+                   {
+                       $('#tree').treeview({
+                            showCheckbox: false,
+                            showBorder: true,
+                            data:data,
+                            selectedBackColor: 'skyblue',
+                            selectedColor: 'white',
+                            backColor: '#EFAF8C',
+                            onNodeSelected: function (event, node) {                               
+                                var url = '@Url.Action("OpenTaskDetails", "Task")'+'?taskUid='+ node.tags[0];                                
+                                $('#task_node').load(url);
+                            },
+                            onNodeChecked: function (event, node) {
+
+                            },
+                            onNodeUnchecked: function (event, node) {
+
+                            }
+                    })
+
+                       $(".loader").fadeOut("slow");
+
+                   }
+            });
+        }
+        )
+
+    function loadTaskView() {
+        $('#task_node').load('@Url.Action("OpenTaskDetails", "Task")');
+    }
+</script>
+

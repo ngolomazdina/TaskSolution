@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Authentication";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="loader"></div>
+
+
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Аутентификация</h5>
+            </div>
+            <div class="modal-body">
+                <p>Пользователя с указанными логином и паролем не существует</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div style="width:30%; margin:auto">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Логин</label>
+        <input type="email" class="form-control" id="login" aria-describedby="emailHelp" placeholder="Укажите логин">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Пароль</label>
+        <input type="password" class="form-control" id="password" placeholder="Укажите пароль">
+    </div>
+    <button type="button" class="btn btn-primary" autofocus onclick="UserAuthentication()">Отправить</button>
+</div>
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $(".loader").fadeOut("slow");
+    })
+
+    function UserAuthentication()
+    {
+        $(".loader").fadeIn("slow");
+
+        $.ajax({
+            type: 'GET',
+            url: '@(Url.Action("UserAuthentication", "Authentication"))',
+            data: {
+                login: $("#login").val(),
+                password: $("#password").val()
+            },
+            processData: true,
+            contentType: 'application/json; charset=utf-8',
+             success: function (json) {
+                 if (json == "IsNotAuthenticated") {
+                     $('#myModal').modal('show');
+                     $("#login").val('');
+                     $("#password").val('');
+                     $(".loader").fadeOut("slow");
+                 }
+                 else {
+                     location.replace('@(Url.Action("Index", "Task"))');
+                 }
+             },
+            error: function (request, status, error) {
+                alert('Возникла ошибка при проверке логина и пароля');
+            }
+        })
+
+
+    }
+</script>

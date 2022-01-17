@@ -1,0 +1,125 @@
+﻿@model TaskWebApp.Models.Task
+
+@using (Html.BeginForm("Save","Task", FormMethod.Post))
+{    
+    <div class="content" style="margin:20px">
+        @Html.HiddenFor(model=>model.Uid)
+        <div id="buttons" style="width:100%" class="form-group">
+            <div class="table" style="margin:inherit">
+                <div class="tableRow">
+                    <div class="tableCell" style="width:28%">
+                        <input type="submit" id="saveTaskBtn" style="width:100%; border: 1px solid #cccccc !important;" class="btn" value="Сохранить"/>
+                        @*<button type="button" id="saveTaskBtn" style="width:100%;" class="btn" onclick="location.href=('@(Url.Action("Save", "Task", new { taskUid = Model.Uid, task = Model }))')">Сохранить</button>*@
+                    </div>
+                    <div class="tableCell" style="width:8%"></div>
+                    <div class="tableCell" style="width:28%"></div>
+                    <div class="tableCell" style="width:8%"></div>
+                    <div class="tableCell" style="width:28%">
+                        <button type="button" id="deleteTaskBtn" style="width:100%;" class="btn" onclick="location.href=('@(Url.Action("Delete", "Task", new { taskUid = Model.Uid }))')">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="tableRow">
+                <div class="tableCell" style="width:46%">
+                    <div style="width:100%;" class="form-group">
+                        <label for="Name">Название</label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control required", @required = "required" } })
+                    </div>
+                </div>
+                <div class="tableCell" style="width:8%"></div>
+                <div class="tableCell" style="width:46%">
+                    <div style="width:100%;" class="form-group">
+                        <label for="stateId">Статус</label>
+                        @Html.DropDownListFor(model => model.StateId, (IEnumerable<SelectListItem>)ViewData["AllAvailableStates"], new { @class = "form-control required", @required = "required" })
+                    </div>
+                </div>
+            </div>
+            <div class="tableRow">
+                <div class="tableCell" style="width:46%">
+                    <div style="width:100%" class="form-group">
+                        <label for="createDate">Дата создания</label>
+                        @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control datepicker", @disabled = "disabled" } })
+                    </div>
+                </div>
+                <div class="tableCell" style="width:8%"></div>
+                <div class="tableCell" style="width:46%">
+                    <div style="width:100%" class="form-group">
+                        <label for="endDate">Дата завершения</label>
+                        @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="tableRow">
+                <div class="tableCell">
+                    <div style="width:100%;" class="form-group">
+                        <label for="parent">Главная задача</label>
+                        @Html.DropDownListFor(model => model.ParentUid, (IEnumerable<SelectListItem>)ViewData["AllTasks"], " ", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="tableRow">
+                <div class="tableCell">
+                    <div style="width:100%;" class="form-group">
+                        <label for="description">Описание</label>
+                        @Html.TextAreaFor(model => model.Description, 3, 60, new { @class = "form-control required", @required="required"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="tableRow">
+                <div class="tableCell" style="width:46%">
+                    <div style="width:100%" class="form-group">
+                        <label for="planTime">Плановая трудоёмкость (в часах)</label>
+                        @Html.EditorFor(model => model.PlanTime, new { htmlAttributes = new { @class = "form-control required", @required = "required" } })
+                    </div>
+                </div>
+                <div class="tableCell" style="width:8%"></div>
+                <div class="tableCell" style="width:46%">
+                    <div style="width:100%" class="form-group">
+                        <label for="factTime">Фактическая трудоёмкость (в часах)</label>
+                        @Html.EditorFor(model => model.FactTime, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="tableRow">
+                <div class="tableCell">
+                    <div style="width:100%;" class="form-group">
+                        <label for="client">Заказчик</label>
+                        @Html.DropDownListFor(model => model.ClientUid, (IEnumerable<SelectListItem>)ViewData["AllUsers"], new { @class = "form-control required", @required = "required" })
+                    </div>
+                </div>
+            </div>
+            <div class="tableRow">
+                <div class="tableCell">
+                    <div style="width:100%;" class="form-group">
+                        <label for="executors">Исполнители</label>
+                        @Html.ListBoxFor(model => model.Executors,
+                         new MultiSelectList(((IEnumerable<SelectListItem>)ViewData["AllUsers"]).OrderBy(u => u.Text), "Value", "Text", Model.Executors),
+                         new { @class = "form-control", @multiple = "multiple" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+    <script>
+
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                format: 'dd.mm.yyyy',
+                language: 'ru'
+            });
+
+        })
+
+    </script>
+
+
